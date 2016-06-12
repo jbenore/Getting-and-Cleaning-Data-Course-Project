@@ -71,9 +71,13 @@ summarizedData <- combinedSubsetted %>%
     summarize_each_(funs(mean), names(combinedSubsetted)[-(1:2)])
 
 
-# -- C L E A N I N G   U P   W O R K I N G   D A T A ---
+# --- C L E A N I N G   U P   W O R K I N G   D A T A ---
 rm(activityLabels, features, 
    subjectTest, xTest, yTest, 
    subjectTrain, xTrain, yTrain,
    xCombined, yCombined, subjectCombined,
    validNames, subsettedMean, subsettedStd)
+
+
+# --- E X P O R T I N G   D A T A ---
+write.table(summarizedData, "summarized_data.txt", row.name=FALSE)
