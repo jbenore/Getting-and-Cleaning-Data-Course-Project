@@ -31,21 +31,21 @@ This allows for subsetting of data based on features when they are applied as X 
 
 
 ### Transformations
-1. Test and train data was first combined by data type:
+Test and train data was first combined by data type:
 * xCombined - Combined X data for test and train sets
 * yCombined - Combined Y data (Activities) for the test and train sets
 * subjectCombined - Combined subject data for the test and train sets
 
-2. Features was converted to valid variable names (via the validNames variable), and xCombined
+Features was converted to valid variable names (via the validNames variable), and xCombined
 column names were assigned to these values.
 yCombined and subjectCombined contain just a single column, so these columns are individually
 names "Activity" and "Subject" respectively.
 
-3. The numeric values for yCombined (Activity) are converted to descriptive values by assigning
+The numeric values for yCombined (Activity) are converted to descriptive values by assigning
 these values as factors and updating the levels of the table according to the indexed values
 in activityLabels.
 
-4. The xCombined dataframe is subsetted based on contents found within the column names:
+The xCombined dataframe is subsetted based on contents found within the column names:
 * subsettedMean - xCombined columns with names that contain "mean"
 * subsettedStd - xCombined columns with names that contain "std"
 These two subsetted dataframes were combined to a new dataframe that contains both subsets of columns:
@@ -53,7 +53,7 @@ These two subsetted dataframes were combined to a new dataframe that contains bo
 
 NOTE: combinedSubsetted is the dataframe requested at Step 4 of the assignment
 
-5. Using piping, the combinedSubsetted dataframe is first grouped by Activity and Subject, and 
+Using piping, the combinedSubsetted dataframe is first grouped by Activity and Subject, and 
 each column is then summarized to find the mean using summarize_each_. The variables for the 
 summarize_each function were identified by calling the column names of the combinedSubsetted dataframe,
 excluding the first two columns (Activity and Subject).
